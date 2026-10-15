@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM and events</title>
+    <style>
+        #box{
+            background-color: blue;
+            color: aliceblue;
+            font-size: 1.5em;
+            padding: 3px;
+            text-align: center;
+            width: 200px;
+
+        }
+        #box:hover{
+            cursor: pointer;
+        }
+        #movemouse{
+            height: 75vh;
+        }
+        div{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <p id="box">Click Me😊</p> 
+    <div id="movemouse"></div>
+    <script>
+        const box = document.getElementById('box');
+        function myFunction(event){
+            event.target.style.backgroundColor = "red";
+            box.textContent = 'Ouch! 🤕'
+            console.log(event);
+        }
+        box.addEventListener('click', myFunction);
+
+        function movemouse(event){
+            event.target.style.backgroundColor = "yellow";
+            box.textContent = 'Do not click! 😠'
+            console.log(event);
+
+        }
+        box.addEventListener('mouseenter', movemouse);
+
+        function leavemouse(event){
+            event.target.style.backgroundColor = 'lightgreen';
+            box.textContent = 'Phew! 😌'
+            console.log(event);
+        }
+        box.addEventListener("mouseleave", leavemouse);
+
+        function twoclick(event){
+            event.target.style.backgroundColor = 'pink';
+            box.textContent = 'Double trouble! 🤩'
+            console.log(event);
+        }
+        box.addEventListener('dblclick', twoclick);
+
+        function mousemoving(event){
+            box.style.backgroundColor = 'lightblue';
+            movemouse.textContent = 'I see you! 👀';
+            console.log(event);
+        }
+        document.getElementById('movemouse').addEventListener("mousemove", mousemoving);
+
+        
+    </script>
+    
+</body>
+</html>
