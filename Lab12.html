@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12</title>
+</head>
+<body>
+    <form action="#">
+        <label for="greeting">Hello</label>
+        <input type ='text' id ='greeting' name='greeting' placeholder='Type your name here'>
+        <p id="show-greeting"></p>
+        <label for="x">Enter a number:</label>
+        <input type="number" id="x" name="x" placeholder="Enter the first number" required><br>
+        <label for="y">Enter another number:</label>
+        <input type="number" id="y" name="y" placeholder="Enter the second number" required><br>
+        <p>Select your desired mathematical operation:</p>
+        <input type="radio" name="operation" value="add">Add<br>
+        <input type="radio" name="operation" value="subtract">Subtract<br>
+        <input type="radio" name="operation" value="multiply">Multiply<br>
+        <input type="radio" name="operation" value="divide">Divide<br>
+        <p id="result"></p>
+        <button type="button" id="calculate">Calculate</button><br>
+        <br>
+        <button type="button" id="Reset">Reset</button>
+    </form>
+    <script>
+    const greeting = document.getElementById('greeting');
+    const showGreeting = document.getElementById('show-greeting');
+
+    greeting.addEventListener('input', function() {
+        showGreeting.textContent = `Hello ${greeting.value}!`;
+    });
+
+    const result = document.getElementById('result');
+    const x = document.getElementById('x');
+    const y = document.getElementById('y');
+    const calculate = document.getElementById('calculate');
+
+    calculate.addEventListener('click', function() {
+        const operation = document.querySelector('input[name="operation"]:checked');
+        if (!operation) {
+            result.textContent = "Please select an operation.";
+            return;
+        }
+
+        const numX = parseFloat(x.value);
+        const numY = parseFloat(y.value);
+
+        if (isNaN(numX) || isNaN(numY)) {
+            result.textContent = "Please enter valid numbers.";
+            return;
+        }
+
+        let calculationResult;
+        switch (operation.value) {
+            case "add":
+                calculationResult = numX + numY;
+                break;
+            case "subtract":
+                calculationResult = numX - numY;
+                break;
+            case "multiply":
+                calculationResult = numX * numY;
+                break;
+            case "divide":
+                if (numY === 0) {
+                    result.textContent = "Error: Division by zero is not allowed.";
+                    return;
+                }
+                calculationResult = numX / numY;
+                break;
+            default:
+                result.textContent = "Invalid operation.";
+                return;
+        }
+
+        result.textContent = `Result: ${calculationResult}`;
+    });
+    const clear = document.getElementById('Reset');
+    clear.addEventListener('click', function() {
+        greeting.value = '';
+        showGreeting.textContent = '';
+        x.value = '';
+        y.value = '';
+        result.textContent = '';
+        const operation = document.querySelector('input[name="operation"]:checked');
+        if (operation) {
+            operation.checked = false;
+        }
+    });
+
+    </script>
+</body>
+</html>
