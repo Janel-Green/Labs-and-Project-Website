@@ -1,0 +1,350 @@
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+header{
+    background-color: black;
+    padding: 20px;
+    position: relative;
+}
+h1{
+    color: red;
+    font-family: Georgia, serif;
+}
+nav{
+    display: flex;
+    gap: 20px;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+nav a:hover{
+    color: red;
+}
+main{
+    padding: 20px;
+}
+.welcome.message{
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+}
+.welcome.message h2{
+    color: red;
+    font-size: 24px;
+}
+.welcome.message p{
+    color: white;
+    font-size: 16px;
+}
+.show{
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+}
+.show h2{
+    color: red;
+}
+.first.show{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.first.show img{
+    width: 200px;
+    border-radius: 10px;
+}
+.first.show a{
+    color:white;
+    background-color: darkred;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.top-picks, .top-movies{
+    padding: 20px;
+}
+.top-picks h2, .top-movies h2{
+    color: red;
+}
+.top-picks-container, .top-movies-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.top-picks-container img, .top-movies-container img{
+    width: 150px;
+    border-radius: 10px;
+}
+.top-picks-container h3, .top-movies-container h3{
+    text-align: center;
+}
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+/* Media Queries for Mobile Devices and Small Screens */
+@media (max-width: 500px){
+    nav{
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
+    .top-picks-container, .top-movies-container{
+        justify-content: center;
+    }
+    .first.show{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-review{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-review img{
+        width: 150px;
+    }
+    .service{
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .service img{
+        width: 150px;
+        height:150px;
+        object-fit: contain;
+        max-width: 100%;
+    }
+    .header-badge{
+        position: static;
+        display: block;
+        margin-bottom: 20px;
+
+    }
+    header h1{
+        font-size: 18px;
+        flex-wrap: wrap;
+    }
+    
+
+
+}
+.reviews{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.reviews h2{
+    color: red;
+    font-size: 24px;
+}
+.reviews p{
+    color: white;
+    font-size: 15px;
+}
+.show-reviews, .movie-reviews{
+    color: red;
+}
+.card-review{
+    display: flex;
+    gap: 15px;
+    background-color: black;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+
+}
+.card-review img{
+    width: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+.card-review h3{
+    color: red;
+    font-size: 20px;
+}
+img[src="Images/hercules.jpg"] {
+    width: 350px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.genres-intro{
+    background-color: #242424;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.genres-intro h2{
+    color: red;
+    font-size: 24px;
+}
+.genre-sec{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.genre-sec h2{
+    color: red;
+    font-size: 24px;
+}
+.genre-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.genre-container img{
+    width: 200px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.genre-container h3{
+    text-align: center;
+}
+.streaming-service-intro{
+    background-color: #242424;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.streaming-service-intro h2{
+    color: red;
+    font-size: 24px;
+}
+.streaming-service-intro p{
+    color: white;
+    font-size: 15px;
+}
+.streaming-services{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.streaming-services h2{
+    color: red;
+    font-size: 24px;
+}
+.service{
+    display: flex;
+    gap: 25px;
+    background-color: black;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.service img{
+    width: 150px;
+    height:150px;
+    object-fit: contain;
+}
+.service h3{
+    color: red;
+    font-size: 24px;
+}
+.service a{
+    color: white;
+    background-color: darkred;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+.about-introduction{
+    background-color: #242424;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom:20px;
+}
+.about-introduction h2{
+    color: red;
+    font-size: 24px;
+}
+.about-introduction p{
+    color: white;
+    font-size: 16px;
+}
+.about-reasoning{
+    background-color: #242424;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.about-reasoning h2{
+    color: red;
+    font-size: 24px;
+}
+.about-reasoning p{
+    color: white;
+    font-size: 16px;
+}
+.content-about{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.content-about h2{
+    color: red;
+    font-size: 24px;
+}
+.content-about p{
+    color: white;
+    font-size: 16px;
+}
+.form{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.form h2{
+    color: red;
+    font-size: 16px;
+}
+.form p{
+    color: white;
+    font-size: 16px;
+}
+.form input{
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+.form button{
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form button:hover{
+    background-color: darkred;
+}
+.header-badge{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: darkred;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
