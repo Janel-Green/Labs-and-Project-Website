@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise fetch and API</title>
+</head>
+<body>
+    <h1>Profile Generator</h1>
+    <p>Welcome to my Profile Generator Page.</p>
+    <script>
+        //create the promise
+        //const p = new Promise((resolve, reject)=>{
+        //    const grade=90;
+        //    if (grade > 50){resolve('Pass the class Yaaa...')}
+        //    else{reject('Fail the class :( ) ')}
+        // });
+        //consume the promise
+        //p.then(sucess => console.log(sucess)).catch(reason => console.log(reason)).finally(console.log('Thats all!'));
+        
+        //consume the promise with try and catch <clean way>
+
+        //const checkGrade= async()=>{
+        //    try{
+        //        const result = await p;
+        //        console.log(result);
+        //    }catch{(reason)=>console.log(reason);}
+        //    
+        // }
+       // checkGrade();
+        let card = document.createElement('div');
+        card.style.backgroundColor = 'lightgrey';
+        card.style.width = '300px';
+        card.style.padding = '25px';
+        card.style.borderRadius = '20px';
+        let img = document.createElement('img');
+        let name = document.createElement('n');
+        let email = document.createElement('e');
+        let phone = document.createElement('p');
+        let form = document.createElement('form');
+        let bttn = document.createElement('button');
+        
+
+        form.action ='#';
+        bttn.type ='button';
+        bttn.textContent= 'Get Profile Generated';
+        
+        form.appendChild(bttn);
+        document.body.appendChild(form);
+        
+       const getProfile = async()=>{
+        try{
+            let profileAdd = await fetch('https://randomuser.me/api/');
+            profileAdd = await profileAdd.json();
+            let profile = profileAdd.results[0];
+            
+
+           
+            img.src = profile.picture.large;
+            name.textContent = profile.name.first + ` ` + profile.name.last;
+            email.textContent = ` ` + profile.email;
+            phone.textContent = profile.phone;
+            img.alt = 'Profile Pic';
+            img.style.width = '300px';
+            card.appendChild(img);
+            card.appendChild(name);
+            card.appendChild(email);
+            card.appendChild(phone);
+            document.body.appendChild(card);
+
+
+        }catch{(reason)=> console.log(reason);}
+            
+       }
+       bttn.addEventListener('click', getProfile);
+    </script>
+</body>
+</html>
