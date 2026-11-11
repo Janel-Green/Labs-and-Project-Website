@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 16</title>
+    <style>
+        .valid{
+            color: green;
+        }
+        .invalid{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form</h1>
+    <form>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" placeholder="Enter name: " required>
+        <br><br>
+
+        <label for="email">Email: </label><br>
+        <input type="email" id="email" placeholder="Enter email: " required>
+        <br><br>
+
+        <label for="password">Password: </label><br>
+        <input type="password" id="password" placeholder="Enter password: " required>
+
+        <div id="guidelines" hidden>
+            <p id="length">At least 6 characters</p>
+            <p id="special-char">Must include a special character (!@#S...)</p>
+            <p id="uppercase-let">Must include an uppercase letter (A-Z)</p>
+        </div>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+
+            if(name && email && password){
+                window.location.href='success.html';
+            }
+        });
+        const password= document.querySelector('#password');
+        const guidelines = document.querySelector('#guidelines');
+        const length = document.querySelector('#length');
+        const specialChar = document.querySelector('#special-char');
+        const uppercaseLet = document.querySelector('#uppercase-let');
+
+        password.addEventListener('input', function(){
+            guidelines.hidden = password.value.length === 0;
+
+            length.classList.toggle('valid', password.value.length >= 6);
+            length.classList.toggle('invalid', password.value.length < 6);
+
+            specialChar.classList.toggle('valid', /[!@#$%^&*(),.?":{}|<>]/.test(password.value));
+            specialChar.classList.toggle('invalid', !/[!@#$%^&*(,.?":{}|<>]/.test(password.value));
+            
+            uppercaseLet.classList.toggle('valid', /[A-Z]/.test(password.value));
+            uppercaseLet.classList.toggle('invalid', !/[A-Z]/.test(password.value));
+            
+        });
+    </script>
+</body>
+</html>
